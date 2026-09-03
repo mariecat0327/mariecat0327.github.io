@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肇兴侗寨 · 目的地探索指南</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #0b1a2e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 顶部导航 ===== */
+        .top-nav {
+            background: white;
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.92);
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            color: #0b1a2e;
+        }
+
+        .nav-brand i {
+            color: #3a8a5a;
+            font-size: 1.3rem;
+        }
+
+        .nav-brand .en {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #8a9db0;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1f3a5f;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #3a8a5a;
+        }
+
+        /* 语言切换按钮 */
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .lang-switch button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: 0.2s;
+            color: #5b6f89;
+        }
+        .lang-switch button.active {
+            background: #3a8a5a;
+            color: white;
+        }
+        .lang-switch button:hover:not(.active) {
+            background: #eaf5ea;
+        }
+        .lang-switch .divider {
+            color: #c0c8d0;
+        }
+
+        /* ===== HERO 区域 ===== */
+        .hero {
+            position: relative;
+            height: 460px;
+            min-height: 340px;
+            margin-bottom: 40px;
+            border-radius: 0 0 40px 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d2a1a;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/jieqing1.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            filter: brightness(0.55) saturate(1.1);
+            transition: transform 0.6s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.02);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 .en {
+            font-weight: 300;
+            font-size: 1.6rem;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 4px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .hero .slogan {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+
+        .hero .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .hero .tag-row .tag {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(6px);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero .tag-row .tag i {
+            margin-right: 6px;
+        }
+
+        /* ===== 通用标题 ===== */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: #3a8a5a;
+            font-size: 1.6rem;
+        }
+
+        .section-title .sub {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #8a9db0;
+            margin-left: 4px;
+        }
+
+        /* ===== 装饰分隔线 ===== */
+        .divider-line {
+            text-align: center;
+            margin: 10px 0 24px;
+            font-size: 0.75rem;
+            color: #7aaa8a;
+            letter-spacing: 6px;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .divider-line::before,
+        .divider-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #7aaa8a, transparent);
+        }
+
+        .divider-line::before { left: 0; }
+        .divider-line::after { right: 0; }
+
+        /* ================================================================ */
+        /* 内容包装器（中英文切换） */
+        /* ================================================================ */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+
+        /* ================================================================ */
+        /* 1. 目的地概览 */
+        /* ================================================================ */
+        .overview-section {
+            margin-bottom: 40px;
+        }
+
+        .overview-left {
+            max-width: 100%;
+        }
+
+        .overview-left .main-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            color: #0b1a2e;
+        }
+
+        .overview-left .main-title .green {
+            color: #3a8a5a;
+        }
+
+        .overview-left .sub-title {
+            font-size: 1.1rem;
+            color: #2c405c;
+            margin-bottom: 12px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .overview-left .desc-text {
+            font-size: 1rem;
+            color: #4a5f7a;
+            max-width: 95%;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .overview-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 52px;
+            margin-top: 4px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-item .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0b1a2e;
+            line-height: 1.2;
+        }
+
+        .stat-item .number .suffix {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a5f7a;
+        }
+
+        .stat-item .label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #5b6f89;
+            margin-top: 2px;
+        }
+
+        /* ================================================================ */
+        /* 2. 核心亮点 — 所有卡片整张可点击跳转 */
+        /* ================================================================ */
+        .highlights-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #eef2f6;
+            transition: 0.3s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            flex: 0 0 calc(25% - 12px);
+            min-width: 180px;
+            max-width: 280px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.10);
+            border-color: #7aaa8a;
+        }
+
+        .highlight-card .card-img {
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .highlight-card .card-img .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.12));
+        }
+
+        .highlight-card .card-body {
+            padding: 12px 14px 14px;
+            text-align: center;
+        }
+
+        .highlight-card .card-body .icon {
+            font-size: 1.5rem;
+            color: #3a8a5a;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .highlight-card .card-body h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0b1a2e;
+        }
+
+        .highlight-card .card-body p {
+            font-size: 0.72rem;
+            color: #4a5f7a;
+            line-height: 1.4;
+            margin-top: 3px;
+        }
+
+        .highlight-card .card-body .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .highlight-card .card-body .tags span {
+            background: #eaf5ea;
+            color: #1a4a2a;
+            font-size: 0.55rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .highlight-card .card-body .tags span.highlight {
+            background: #3a8a5a;
+            color: white;
+        }
+
+        /* ================================================================ */
+        /* 3. 深度体验 */
+        /* ================================================================ */
+        .experience-section {
+            margin-bottom: 40px;
+        }
+
+        .experience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 16px;
+        }
+
+        .exp-card {
+            background: white;
+            border-radius: 20px;
+            padding: 18px 16px 18px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            flex: 0 0 calc(25% - 12px);
+            min-width: 170px;
+            max-width: 280px;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
+            border-color: #7aaa8a;
+        }
+
+        .exp-card .badge {
+            display: inline-block;
+            background: #eaf5ea;
+            color: #1a4a2a;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+        }
+
+        .exp-card h4 {
+            font-size: 1.0rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .exp-card p {
+            font-size: 0.78rem;
+            color: #4a5f7a;
+            line-height: 1.5;
+        }
+
+        .exp-card .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 8px;
+            font-size: 0.7rem;
+            color: #5b6f89;
+        }
+
+        .exp-card .meta i {
+            color: #3a8a5a;
+            margin-right: 3px;
+        }
+
+        /* ================================================================ */
+        /* 4. 探索攻略（删除了“必访地标”，现为两列） */
+        /* ================================================================ */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 18px 20px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.10);
+            border-color: #3a8a5a;
+        }
+
+        .guide-card h4 {
+            font-size: 1.0rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-card h4 i {
+            color: #3a8a5a;
+        }
+
+        .guide-card ul {
+            list-style: none;
+        }
+
+        .guide-card ul li {
+            padding: 5px 0;
+            font-size: 0.82rem;
+            color: #2c405c;
+            border-bottom: 1px solid #f0f4fa;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-card ul li i {
+            color: #3a8a5a;
+            width: 16px;
+            font-size: 0.7rem;
+        }
+
+        .guide-card .highlight-item {
+            font-weight: 600;
+            color: #0b1a2e;
+        }
+
+        /* ================================================================ */
+        /* 5. 实用信息 */
+        /* ================================================================ */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 18px 18px 20px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+
+        .info-card h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card h4 i {
+            color: #3a8a5a;
+            width: 20px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            padding: 4px 0;
+            font-size: 0.78rem;
+            color: #2c405c;
+            border-bottom: 1px solid #f5f8f6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li i {
+            color: #8a9db0;
+            width: 16px;
+            font-size: 0.65rem;
+        }
+
+        .info-card .highlight {
+            color: #3a8a5a;
+            font-weight: 600;
+        }
+
+        /* ===== 底部 ===== */
+        footer {
+            background: white;
+            border-top: 1px solid #e2eaf2;
+            padding: 24px 0;
+            margin-top: 8px;
+            color: #5b6f89;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* ================================================================ */
+        /* 响应式 */
+        /* ================================================================ */
+        @media (max-width: 1024px) {
+            .overview-stats { gap: 36px; }
+            .highlight-card { flex: 0 0 calc(50% - 12px); max-width: 100%; }
+            .exp-card { flex: 0 0 calc(50% - 12px); max-width: 100%; }
+            .guide-grid { grid-template-columns: 1fr 1fr; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .hero { height: 380px; }
+            .hero h1 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .overview-stats { gap: 24px; }
+            .highlight-card { flex: 0 0 calc(50% - 12px); min-width: 140px; }
+            .exp-card { flex: 0 0 calc(50% - 12px); min-width: 140px; }
+            .guide-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .hero { height: 320px; min-height: 280px; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero h1 .en { font-size: 1.2rem; }
+            .nav-links { display: none; }
+            .overview-left .desc-text { max-width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .overview-stats { gap: 18px; }
+            .highlight-card { flex: 0 0 100%; max-width: 100%; }
+            .exp-card { flex: 0 0 100%; max-width: 100%; }
+            .info-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 16px; }
+            .hero { height: 280px; }
+            .hero h1 { font-size: 2rem; }
+            .hero h1 .en { font-size: 1rem; letter-spacing: 2px; }
+            .overview-left .main-title { font-size: 1.5rem; }
+            .overview-left .sub-title { font-size: 0.95rem; }
+            .overview-left .desc-text { font-size: 0.85rem; }
+            .stat-item .number { font-size: 1.2rem; }
+            .stat-item .label { font-size: 0.7rem; }
+            .lang-switch button { font-size: 0.7rem; padding: 2px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i> 肇兴侗寨
+                <span class="en">ZHAOXING DONG VILLAGE</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview" data-i18n="nav-overview">概览</a>
+                <a href="#highlights" data-i18n="nav-highlights">亮点</a>
+                <a href="#experience" data-i18n="nav-experience">体验</a>
+                <a href="#guide" data-i18n="nav-guide">攻略</a>
+                <a href="#info" data-i18n="nav-info">实用</a>
+            </div>
+            <div class="lang-switch">
+                <button id="lang-zh" class="active" data-lang="zh">中文</button>
+                <span class="divider">|</span>
+                <button id="lang-en" data-lang="en">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1>
+                <span data-i18n="hero-title">肇兴侗寨</span>
+                <span class="en" data-i18n="hero-sub">ZHAOXING · 千年侗寨 梦幻肇兴</span>
+            </h1>
+            <div class="slogan" data-i18n="hero-slogan">中国最大侗寨 · 全球最具诱惑力的33个旅游目的地之一</div>
+            <div class="tag-row">
+                <span class="tag"><i class="fas fa-archway"></i> <span data-i18n="tag-drum">鼓楼</span></span>
+                <span class="tag"><i class="fas fa-bridge"></i> <span data-i18n="tag-bridge">花桥</span></span>
+                <span class="tag"><i class="fas fa-music"></i> <span data-i18n="tag-song">侗族大歌</span></span>
+                <span class="tag"><i class="fas fa-mountain"></i> <span data-i18n="tag-terrace">梯田</span></span>
+                <span class="tag"><i class="fas fa-hands"></i> <span data-i18n="tag-craft">非遗</span></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- 装饰分隔线 -->
+        <div class="divider-line" data-i18n="divider">✦ ✦ ✦ 侗乡第一寨 · 人类非遗侗族大歌 ✦ ✦ ✦</div>
+
+        <!-- ============================================================ -->
+        <!-- 中文内容 -->
+        <!-- ============================================================ -->
+        <div id="lang-zh-content" class="lang-content active">
+
+            <!-- 1. 目的地概览 -->
+            <section id="overview" class="overview-section">
+                <div class="overview-left">
+                    <div class="main-title">千年侗寨 · <span class="green">活态文化</span></div>
+                    <div class="sub-title"></div>
+                    <div class="desc-text">
+                        肇兴侗寨是全国最大的侗族村寨之一，被《中国国家地理》评为"中国最美的六大乡村古镇"之一。
+                        2200多年的侗族历史在这里活态传承，侗族大歌响彻山谷，鼓楼花桥见证千年风雨。
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="number"><span class="suffix">第</span>12<span class="suffix"> 位</span></div>
+                            <div class="label">全国少数民族人口排名</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">2200<span class="suffix">+ 年</span></div>
+                            <div class="label">侗族历史</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">1<span class="suffix"> 项</span></div>
+                            <div class="label">人类非物质文化遗产</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">5200<span class="suffix">+ 人</span></div>
+                            <div class="label">肇兴侗寨总人口</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">8<span class="suffix">寨</span>1<span class="suffix">山</span></div>
+                            <div class="label">周边少数民族村落</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 核心亮点 — 所有卡片整张可点击跳转 -->
+            <section id="highlights">
+                <div class="section-title">
+                    <i class="fas fa-star"></i> 核心亮点
+                    <span class="sub">· 六大文化名片</span>
+                </div>
+                <div class="highlights-grid">
+
+                    <!-- 鼓楼 -->
+                    <a href="网页-肇兴-核心亮点-鼓楼.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/gulou3.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-archway"></i></span>
+                            <h4>鼓楼</h4>
+                            <p>五座鼓楼 仁义礼智信<br>全榫卯结构 吉尼斯世界纪录</p>
+                            <div class="tags">
+                                <span class="highlight">地标</span>
+                                <span>榫卯</span>
+                                <span>24.37米</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 花桥 -->
+                    <a href="网页-肇兴-核心亮点-花桥.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/huaqiao1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-bridge"></i></span>
+                            <h4>花桥</h4>
+                            <p>风雨桥 廊桥遗梦<br>侗族建筑三宝之一</p>
+                            <div class="tags">
+                                <span>风雨桥</span>
+                                <span>廊桥</span>
+                                <span>侗族三宝</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 侗族大歌 -->
+                    <a href="网页-肇兴-核心亮点-侗族大歌.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-music"></i></span>
+                            <h4>侗族大歌</h4>
+                            <p>人类非物质文化遗产<br>无伴奏多声部合唱</p>
+                            <div class="tags">
+                                <span class="highlight">人类非遗</span>
+                                <span>多声部</span>
+                                <span>天籁之音</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 活态非遗手工艺 -->
+                    <a href="网页-肇兴-核心亮点-手工艺.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/shougong1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-hands"></i></span>
+                            <h4>活态非遗手工艺</h4>
+                            <p>少数民族服饰私人珍藏 蓝靛染 蜡染 刺绣<br>100+种刺绣针法</p>
+                            <div class="tags">
+                                <span>蓝靛染</span>
+                                <span>蜡染</span>
+                                <span>刺绣</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 梯田 — 修改为可点击链接 -->
+                    <a href="网页-肇兴-核心亮点-梯田.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/titian1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-mountain"></i></span>
+                            <h4>梯田</h4>
+                            <p>堂安梯田 徒步天堂<br>四季变幻如画</p>
+                            <div class="tags">
+                                <span>堂安梯田</span>
+                                <span>徒步</span>
+                                <span>日出云海</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 民俗节庆 -->
+                    <div class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/jieqing1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-calendar-day"></i></span>
+                            <h4>民俗节庆</h4>
+                            <p>谷雨节 六月六 侗年<br>16项特色活动</p>
+                            <div class="tags">
+                                <span>谷雨节</span>
+                                <span>六月六</span>
+                                <span>侗年</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. 深度体验 -->
+            <section id="experience" class="experience-section">
+                <div class="section-title">
+                    <i class="fas fa-route"></i> 深度体验
+                    <span class="sub">· 行程推荐</span>
+                </div>
+                <div class="experience-grid">
+                    <div class="exp-card">
+                        <span class="badge"><i class="far fa-clock"></i> 1日经典</span>
+                        <h4>肇兴精华线路 · 侗寨最佳路线</h4>
+                        <p>侗族文化博物馆 → 五座鼓楼群 → 花桥漫步 → 侗族大歌演出
+                           +最佳美食推荐+最佳景观推荐</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 约5小时</span>
+                            <span><i class="fas fa-language"></i> 中/英文专业精讲</span>
+                            <span><i class="fas fa-walking"></i> 步行</span>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <span class="badge"><i class="far fa-calendar-alt"></i> 2日漫游</span>
+                        <h4>非遗寻踪 · 梯田徒步</h4>
+                        <p>Day1：鼓楼群+花桥+大歌 · Day2：堂安梯田徒步+少数民族服饰私人珍藏博物馆参观+蜡染体验</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 2天</span>
+                            <span><i class="fas fa-language"></i> 中/英文专业向导</span>
+                            <span><i class="fas fa-hiking"></i> 徒步+手作</span>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <span class="badge"><i class="far fa-calendar-alt"></i> 3日沉浸</span>
+                        <h4>侗乡苗寨 · 双寨体验</h4>
+                        <p>Day1：寨内深度游 · Day2：梯田徒步+蜡染 · Day3：岜沙苗寨+黄岗侗寨</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 3天</span>
+                            <span><i class="fas fa-language"></i> 中/英文</span>
+                            <span><i class="fas fa-hand-sparkles"></i> 传承人亲授</span>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <span class="badge"><i class="fas fa-compass"></i> 4日深度</span>
+                        <h4>秘境探访 · 文化寻根</h4>
+                        <p>肇兴+堂安+纪堂侗寨深度游 · 非遗全体验 · 篝火晚会</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 4天</span>
+                            <span><i class="fas fa-language"></i> 中/英文</span>
+                            <span><i class="fas fa-campground"></i> 文化专家带队</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 探索攻略 -->
+            <section id="guide">
+                <div class="section-title">
+                    <i class="fas fa-book-open"></i> 探索攻略
+                    <span class="sub">· 美食·观景</span>
+                </div>
+                <div class="guide-grid">
+
+                    <!-- 必吃美食 -->
+                    <a href="网页-肇兴-必吃美食.html" class="guide-card">
+                        <h4>
+                            <i class="fas fa-utensils"></i> 必吃美食
+                            <span style="color:#3a8a5a;font-size:0.7rem;transition:0.3s;display:inline-block;"><i class="fas fa-arrow-right"></i></span>
+                        </h4>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> <strong>酸汤火锅</strong> — 侗家经典酸汤风味</li>
+                            <li><i class="fas fa-circle"></i> <strong>脆皮烤香猪肉</strong> — 地道小吃</li>
+                            <li><i class="fas fa-circle"></i> <strong>腌鱼腌肉</strong> — 侗族特色发酵美食</li>
+                            <li><i class="fas fa-circle"></i> <strong>牛瘪</strong> — 独特风味体验</li>
+                            <li><i class="fas fa-circle"></i> <strong>杨梅冰浆</strong> — 消暑佳品</li>
+                            <li><i class="fas fa-circle"></i> <strong>一杯黔茶</strong> — 贵州特色茶饮</li>
+                        </ul>
+                    </a>
+
+                    <!-- 最佳观景地点 -->
+                    <div class="guide-card">
+                        <h4><i class="fas fa-camera"></i> 最佳观景地点</h4>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">堂安梯田观景台</span> — 日出云海</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">肇兴全景观景台</span> — 俯瞰全寨</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">鼓楼夜景</span> — "千与千寻"梦幻场景</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">花桥流水</span> — 小桥流水人家</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">梯田日落</span> — 金色霞光</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 5. 实用信息 -->
+            <section id="info">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> 实用信息
+                    <span class="sub">· 行前必备</span>
+                </div>
+                <div class="info-grid">
+                    <!-- 交通 -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-plane"></i> 交通</h4>
+                        <ul>
+                            <li><i class="fas fa-train"></i> 高铁：<span class="highlight">从江站</span></li>
+                            <li><i class="fas fa-bus"></i> 从江站→景区 <span class="highlight">接站服务</span></li>
+                            <li><i class="fas fa-clock"></i> 车程：<span class="highlight">约15-20分钟</span></li>
+                            <li><i class="fas fa-route"></i> 贵广高铁直达</li>
+                        </ul>
+                    </div>
+                    <!-- 淡旺季 -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-calendar-alt"></i> 淡旺季</h4>
+                        <ul>
+                            <li><i class="fas fa-leaf"></i> <span class="highlight">旺季4-10月</span>：气温15-30℃，建议穿薄外套、T恤、防晒衣，多雨需备雨具。</li>
+                            <li><i class="fas fa-snowflake"></i> <span class="highlight">淡季11-3月</span>：气温0-15℃，湿冷，建议穿羽绒服、保暖内衣、防水鞋。</li>
+                            <li><i class="fas fa-umbrella"></i> 雨季集中在5-7月，出行备雨伞。</li>
+                        </ul>
+                    </div>
+                    <!-- 住宿 -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-hotel"></i> 住宿推荐</h4>
+                        <ul>
+                            <li><i class="fas fa-home"></i> <span class="highlight">寨内吊脚楼民宿</span> — 推窗即景</li>
+                            <li><i class="fas fa-water"></i> <span class="highlight">临溪客栈</span> — 听水而眠</li>
+                            <li><i class="fas fa-mountain"></i> <span class="highlight">梯田观景民宿</span> — 日出美景</li>
+                            <li><i class="fas fa-crown"></i> 精品酒店：寨内有多家选择</li>
+                        </ul>
+                    </div>
+                    <!-- 出行指南 -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-passport"></i> 出行指南</h4>
+                        <ul>
+                            <li><i class="fas fa-ticket-alt"></i> 门票：<span class="highlight">80元/人</span></li>
+                            <li><i class="fas fa-bus"></i> 观光车：<span class="highlight">20元往返</span></li>
+                            <li><i class="fas fa-language"></i> 语言：普通话/侗语</li>
+                            <li><i class="fas fa-clock"></i> 建议游玩：<span class="highlight">2-4天</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- end zh-content -->
+
+        <!-- ============================================================ -->
+        <!-- 英文内容 -->
+        <!-- ============================================================ -->
+        <div id="lang-en-content" class="lang-content">
+
+            <!-- 1. Destination Overview -->
+            <section id="overview-en" class="overview-section">
+                <div class="overview-left">
+                    <div class="main-title">A Thousand-Year Dong Village · <span class="green">Living Culture</span></div>
+                    <div class="sub-title"></div>
+                    <div class="desc-text">
+                        Zhaoxing is one of the largest Dong villages in China, named by "Chinese National Geography" as one of the "Six Most Beautiful Ancient Villages in China".
+                        Over 2,200 years of Dong history is passed down here. The Dong Grand Song echoes through the valleys, while drum towers and flower bridges have witnessed centuries of wind and rain.
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="number">12<span class="suffix">th</span></div>
+                            <div class="label">Rank among ethnic minorities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">2200<span class="suffix">+ years</span></div>
+                            <div class="label">Dong history</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">1<span class="suffix"> item</span></div>
+                            <div class="label">UNESCO Intangible Heritage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">5200<span class="suffix">+ people</span></div>
+                            <div class="label">Population of Zhaoxing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">8<span class="suffix"> villages</span>1<span class="suffix"> mountain</span></div>
+                            <div class="label">Nearby ethnic villages</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Highlights — 所有卡片整张可点击跳转 -->
+            <section id="highlights-en">
+                <div class="section-title">
+                    <i class="fas fa-star"></i> Highlights
+                    <span class="sub">· Six Cultural Icons</span>
+                </div>
+                <div class="highlights-grid">
+
+                    <!-- Drum Tower -->
+                    <a href="网页-肇兴-核心亮点-鼓楼.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/gulou3.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-archway"></i></span>
+                            <h4>Drum Tower</h4>
+                            <p>Five towers: Ren, Yi, Li, Zhi, Xin<br>All mortise-tenon structure · Guinness World Record</p>
+                            <div class="tags">
+                                <span class="highlight">Landmark</span>
+                                <span>Mortise-tenon</span>
+                                <span>24.37m</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Flower Bridge -->
+                    <a href="网页-肇兴-核心亮点-花桥.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/huaqiao1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-bridge"></i></span>
+                            <h4>Flower Bridge</h4>
+                            <p>Wind-rain bridge · A dream of covered bridges<br>One of the three treasures of Dong architecture</p>
+                            <div class="tags">
+                                <span>Wind-rain bridge</span>
+                                <span>Covered bridge</span>
+                                <span>Dong treasure</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Dong Grand Song -->
+                    <a href="网页-肇兴-核心亮点-侗族大歌.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-music"></i></span>
+                            <h4>Dong Grand Song</h4>
+                            <p>UNESCO Intangible Cultural Heritage<br>Unaccompanied multi-part choir</p>
+                            <div class="tags">
+                                <span class="highlight">UNESCO</span>
+                                <span>Multi-part</span>
+                                <span>Heavenly sound</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Living Heritage Crafts -->
+                    <a href="网页-肇兴-核心亮点-手工艺.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/shougong1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-hands"></i></span>
+                            <h4>Living Heritage Crafts</h4>
+                            <p>Private collection of ethnic costumes · Indigo dye · Batik · Embroidery<br>100+ embroidery stitches</p>
+                            <div class="tags">
+                                <span>Indigo dye</span>
+                                <span>Batik</span>
+                                <span>Embroidery</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Terraces — 修改为可点击链接 -->
+                    <a href="网页-肇兴-核心亮点-梯田.html" class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/titian1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-mountain"></i></span>
+                            <h4>Tang'an Terraces</h4>
+                            <p>Hiking paradise · Scenery changes with seasons</p>
+                            <div class="tags">
+                                <span>Tang'an</span>
+                                <span>Hiking</span>
+                                <span>Sunrise & clouds</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Festivals -->
+                    <div class="highlight-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/jieqing1.jpg');">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="icon"><i class="fas fa-calendar-day"></i></span>
+                            <h4>Folk Festivals</h4>
+                            <p>Grain Rain Festival · June 6th · Dong New Year<br>16 special events</p>
+                            <div class="tags">
+                                <span>Grain Rain</span>
+                                <span>June 6th</span>
+                                <span>Dong New Year</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. Experiences -->
+            <section id="experience-en" class="experience-section">
+                <div class="section-title">
+                    <i class="fas fa-route"></i> Experiences
+                    <span class="sub">· Itineraries</span>
+                </div>
+                <div class="experience-grid">
+                    <div class="exp-card">
+                        <span class="badge"><i class="far fa-clock"></i> 1-Day Classic</span>
+                        <h4>Zhaoxing Essence · Best of the Village</h4>
+                        <p>Dong Culture Museum → Five Drum Towers → Flower Bridge walk → Grand Song performance<br>+ Best food recommendations + Best scenic viewpoints</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> ~5 hrs</span>
+                            <span><i class="fas fa-language"></i> CN/EN expert guide</span>
+                            <span><i class="fas fa-walking"></i> Walking</span>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <span class="badge"><i class="far fa-calendar-alt"></i> 2-Day Slow</span>
+                        <h4>Heritage · Terraces · Costume Museum</h4>
+                        <p>Day1: Drum towers + bridges + Grand Song · Day2: Tang'an terrace hike + Private Ethnic Costume Museum + Batik workshop</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 2 days</span>
+                            <span><i class="fas fa-language"></i> CN/EN expert guide</span>
+                            <span><i class="fas fa-hiking"></i> Hike + craft</span>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <span class="badge"><i class="far fa-calendar-alt"></i> 3-Day Immersion</span>
+                        <h4>Dong & Miao · Twin Villages</h4>
+                        <p>Day1: Zhaoxing deep dive · Day2: Terraces + batik · Day3: Biasha Miao Village + Huanggang Dong Village</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 3 days</span>
+                            <span><i class="fas fa-language"></i> CN/EN</span>
+                            <span><i class="fas fa-hand-sparkles"></i> Master-led</span>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <span class="badge"><i class="fas fa-compass"></i> 4-Day Deep</span>
+                        <h4>Hidden Villages · Cultural Roots</h4>
+                        <p>Zhaoxing + Tang'an + Jitang · Full heritage experience · Bonfire night</p>
+                        <div class="meta">
+                            <span><i class="fas fa-route"></i> 4 days</span>
+                            <span><i class="fas fa-language"></i> CN/EN</span>
+                            <span><i class="fas fa-campground"></i> Expert-led</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Guide -->
+            <section id="guide-en">
+                <div class="section-title">
+                    <i class="fas fa-book-open"></i> Travel Guide
+                    <span class="sub">· Food · Viewpoints</span>
+                </div>
+                <div class="guide-grid">
+
+                    <!-- Must-Eat Food -->
+                    <a href="网页-肇兴-必吃美食.html" class="guide-card">
+                        <h4>
+                            <i class="fas fa-utensils"></i> Must-Eat Food
+                            <span style="color:#3a8a5a;font-size:0.7rem;transition:0.3s;display:inline-block;"><i class="fas fa-arrow-right"></i></span>
+                        </h4>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> <strong>Sour Soup Hotpot</strong> — Classic Dong flavor</li>
+                            <li><i class="fas fa-circle"></i> <strong>Crispy Roast Pork</strong> — Local street snack</li>
+                            <li><i class="fas fa-circle"></i> <strong>Fermented Fish & Meat</strong> — Traditional Dong delicacy</li>
+                            <li><i class="fas fa-circle"></i> <strong>Beef Bile</strong> — Unique local taste</li>
+                            <li><i class="fas fa-circle"></i> <strong>Iced Bayberry Slush</strong> — Refreshing summer treat</li>
+                            <li><i class="fas fa-circle"></i> <strong>A Cup of Guizhou Tea</strong> — Signature tea drink</li>
+                        </ul>
+                    </a>
+
+                    <div class="guide-card">
+                        <h4><i class="fas fa-camera"></i> Best Viewpoints</h4>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">Tang'an Viewing Deck</span> — Sunrise & sea of clouds</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">Zhaoxing Panoramic Deck</span> — Full village view</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">Drum Towers at Night</span> — "Spirited Away" dreamscape</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">Flower Bridge Stream</span> — Little bridge, flowing water</li>
+                            <li><i class="fas fa-circle"></i> <span class="highlight-item">Terrace Sunset</span> — Golden glow</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 5. Practical Info -->
+            <section id="info-en">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> Practical Info
+                    <span class="sub">· Before You Go</span>
+                </div>
+                <div class="info-grid">
+                    <!-- Transport -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-plane"></i> Transport</h4>
+                        <ul>
+                            <li><i class="fas fa-train"></i> High-speed rail: <span class="highlight">Congjiang Station</span></li>
+                            <li><i class="fas fa-bus"></i> Shuttle: <span class="highlight">Pick-up service</span> from station to village</li>
+                            <li><i class="fas fa-clock"></i> Duration: <span class="highlight">15-20 min</span></li>
+                            <li><i class="fas fa-route"></i> Direct via Guiyang-Guangzhou line</li>
+                        </ul>
+                    </div>
+                    <!-- Best Time to Visit -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-calendar-alt"></i> Best Time to Visit</h4>
+                        <ul>
+                            <li><i class="fas fa-leaf"></i> <span class="highlight">Peak Apr–Oct</span>: 15–30°C, light jacket, T-shirt, sunscreen, rain gear for showers.</li>
+                            <li><i class="fas fa-snowflake"></i> <span class="highlight">Off-peak Nov–Mar</span>: 0–15°C, damp and chilly, pack down jacket, thermal underwear, waterproof shoes.</li>
+                            <li><i class="fas fa-umbrella"></i> Rainy season concentrates in May–July, bring an umbrella.</li>
+                        </ul>
+                    </div>
+                    <!-- Accommodation -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-hotel"></i> Accommodation</h4>
+                        <ul>
+                            <li><i class="fas fa-home"></i> <span class="highlight">Stilt-house B&Bs</span> — scenic views</li>
+                            <li><i class="fas fa-water"></i> <span class="highlight">Creek-side inns</span> — peaceful sounds</li>
+                            <li><i class="fas fa-mountain"></i> <span class="highlight">Terrace-view lodges</span> — sunrise vistas</li>
+                            <li><i class="fas fa-crown"></i> Boutique hotels available inside the village</li>
+                        </ul>
+                    </div>
+                    <!-- Travel Tips -->
+                    <div class="info-card">
+                        <h4><i class="fas fa-passport"></i> Travel Tips</h4>
+                        <ul>
+                            <li><i class="fas fa-ticket-alt"></i> Entry fee: <span class="highlight">80 RMB/person</span></li>
+                            <li><i class="fas fa-bus"></i> Sightseeing shuttle: <span class="highlight">20 RMB round-trip</span></li>
+                            <li><i class="fas fa-language"></i> Languages: Mandarin / Dong</li>
+                            <li><i class="fas fa-clock"></i> Suggested stay: <span class="highlight">2-4 days</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- end en-content -->
+
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-compass"></i> <span data-i18n="footer-title">肇兴侗寨 · 千年侗寨 梦幻肇兴</span></p>
+            <p style="font-size: 0.75rem; margin-top: 4px; color: #8a9db0;" data-i18n="footer-tags">鼓楼 · 花桥 · 侗族大歌 · 堂安梯田 · 非遗手工艺</p>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        (function() {
+            const zhBtn = document.getElementById('lang-zh');
+            const enBtn = document.getElementById('lang-en');
+            const zhContent = document.getElementById('lang-zh-content');
+            const enContent = document.getElementById('lang-en-content');
+
+            // 所有需要翻译的文本元素（有 data-i18n 属性）
+            const i18nElements = document.querySelectorAll('[data-i18n]');
+
+            // 翻译字典
+            const translations = {
+                'zh': {
+                    'nav-overview': '概览',
+                    'nav-highlights': '亮点',
+                    'nav-experience': '体验',
+                    'nav-guide': '攻略',
+                    'nav-info': '实用',
+                    'hero-title': '肇兴侗寨',
+                    'hero-sub': 'ZHAOXING · 千年侗寨 梦幻肇兴',
+                    'hero-slogan': '中国最大侗寨 · 全球最具诱惑力的33个旅游目的地之一',
+                    'tag-drum': '鼓楼',
+                    'tag-bridge': '花桥',
+                    'tag-song': '侗族大歌',
+                    'tag-terrace': '梯田',
+                    'tag-craft': '非遗',
+                    'divider': '✦ ✦ ✦ 侗乡第一寨 · 人类非遗侗族大歌 ✦ ✦ ✦',
+                    'footer-title': '肇兴侗寨 · 千年侗寨 梦幻肇兴',
+                    'footer-tags': '鼓楼 · 花桥 · 侗族大歌 · 堂安梯田 · 非遗手工艺'
+                },
+                'en': {
+                    'nav-overview': 'Overview',
+                    'nav-highlights': 'Highlights',
+                    'nav-experience': 'Experiences',
+                    'nav-guide': 'Guide',
+                    'nav-info': 'Info',
+                    'hero-title': 'Zhaoxing Dong Village',
+                    'hero-sub': 'ZHAOXING · A Thousand-Year Dong Village',
+                    'hero-slogan': "China's largest Dong village · One of the '33 most enticing travel destinations'",
+                    'tag-drum': 'Drum Tower',
+                    'tag-bridge': 'Flower Bridge',
+                    'tag-song': 'Dong Grand Song',
+                    'tag-terrace': 'Terrace',
+                    'tag-craft': 'Heritage Crafts',
+                    'divider': '✦ ✦ ✦ Home of the Dong · UNESCO Grand Song ✦ ✦ ✦',
+                    'footer-title': 'Zhaoxing Dong Village · A Thousand-Year Dream',
+                    'footer-tags': 'Drum Tower · Flower Bridge · Dong Grand Song · Tang\'an Terraces · Heritage Crafts'
+                }
+            };
+
+            function setLanguage(lang) {
+                // 切换内容显示
+                zhContent.classList.toggle('active', lang === 'zh');
+                enContent.classList.toggle('active', lang === 'en');
+
+                // 更新按钮状态
+                zhBtn.classList.toggle('active', lang === 'zh');
+                enBtn.classList.toggle('active', lang === 'en');
+
+                // 更新所有 data-i18n 元素
+                i18nElements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                            el.value = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                // 更新页面 title
+                document.title = lang === 'zh' ? '肇兴侗寨 · 目的地探索指南' : 'Zhaoxing Dong Village · Travel Guide';
+
+                // 更新 html lang
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            }
+
+            zhBtn.addEventListener('click', function() {
+                setLanguage('zh');
+            });
+
+            enBtn.addEventListener('click', function() {
+                setLanguage('en');
+            });
+
+            // 默认中文
+            setLanguage('zh');
+        })();
+    </script>
+
+</body>
+</html>

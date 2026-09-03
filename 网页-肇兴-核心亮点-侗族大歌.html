@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侗族大歌 · 肇兴侗寨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #0b1a2e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 顶部导航 ===== */
+        .top-nav {
+            background: white;
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.92);
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            color: #0b1a2e;
+        }
+
+        .nav-brand i {
+            color: #3a8a5a;
+            font-size: 1.3rem;
+        }
+
+        .nav-brand .en {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #8a9db0;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1f3a5f;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #3a8a5a;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .lang-switch button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: 0.2s;
+            color: #5b6f89;
+        }
+        .lang-switch button.active {
+            background: #3a8a5a;
+            color: white;
+        }
+        .lang-switch button:hover:not(.active) {
+            background: #eaf5ea;
+        }
+        .lang-switch .divider {
+            color: #c0c8d0;
+        }
+
+        /* ===== 返回按钮 ===== */
+        .back-bar {
+            padding: 16px 0 8px;
+        }
+
+        .back-bar a {
+            color: #3a8a5a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .back-bar a:hover {
+            color: #2a6a4a;
+        }
+
+        /* ===== HERO 区域 ===== */
+        .detail-hero {
+            position: relative;
+            height: 380px;
+            min-height: 280px;
+            margin-bottom: 32px;
+            border-radius: 0 0 40px 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d2a1a;
+        }
+
+        .detail-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage2.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            filter: brightness(0.5) saturate(1.1);
+            transition: transform 0.6s ease;
+        }
+
+        .detail-hero:hover .detail-hero-bg {
+            transform: scale(1.02);
+        }
+
+        .detail-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .detail-hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .detail-hero .breadcrumb {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .detail-hero .breadcrumb span {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .detail-hero h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        .detail-hero h1 .en {
+            font-weight: 300;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 4px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .detail-hero .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* ===== 通用标题 ===== */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: #3a8a5a;
+            font-size: 1.6rem;
+        }
+
+        .section-title .sub {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #8a9db0;
+            margin-left: 4px;
+        }
+
+        /* ================================================================ */
+        /* 内容包装器（中英文切换） */
+        /* ================================================================ */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+
+        /* ================================================================ */
+        /* 1. 概述（Overview） */
+        /* ================================================================ */
+        .overview-section {
+            margin-bottom: 40px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .overview-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #2c405c;
+            margin-bottom: 16px;
+        }
+
+        .overview-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .overview-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: white;
+            border-radius: 20px;
+            padding: 24px 20px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0b1a2e;
+            line-height: 1.2;
+        }
+
+        .stat-item .number .suffix {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4a5f7a;
+        }
+
+        .stat-item .label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #5b6f89;
+            margin-top: 2px;
+        }
+
+        /* ================================================================ */
+        /* 2. 轮播图（模糊填充法） */
+        /* ================================================================ */
+        .carousel-section {
+            margin-bottom: 40px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background: #1a2a1a;
+            border: 1px solid #eef2f6;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            filter: blur(30px) brightness(0.5);
+            opacity: 0.9;
+            z-index: 0;
+            transition: filter 0.6s ease;
+        }
+
+        .carousel-slide .slide-img {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .carousel-slide:hover::before {
+            filter: blur(25px) brightness(0.55);
+            transform: scale(1.02);
+        }
+
+        .carousel-slide .slide-label {
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .carousel-slide .slide-label i {
+            margin-right: 8px;
+            color: #3a8a5a;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0,0,0,0.75);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-btn.prev-btn {
+            left: 16px;
+        }
+
+        .carousel-btn.next-btn {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .carousel-dots .dot.active {
+            background: #3a8a5a;
+            width: 28px;
+            border-radius: 6px;
+        }
+
+        .carousel-dots .dot:hover {
+            background: rgba(255,255,255,0.6);
+        }
+
+        .carousel-dots .dot.active:hover {
+            background: #3a8a5a;
+        }
+
+        /* ================================================================ */
+        /* 3. 文化背景与历史故事 */
+        /* ================================================================ */
+        .story-section {
+            margin-bottom: 40px;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 24px 28px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+
+        .story-card:hover {
+            border-color: #7aaa8a;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .story-card .icon {
+            font-size: 1.8rem;
+            color: #3a8a5a;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .story-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .story-card p {
+            font-size: 0.92rem;
+            color: #4a5f7a;
+            line-height: 1.7;
+        }
+
+        /* ================================================================ */
+        /* 4. 实用信息 */
+        /* ================================================================ */
+        .info-section {
+            margin-bottom: 40px;
+        }
+
+        .info-grid-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        .info-card-detail {
+            background: white;
+            border-radius: 20px;
+            padding: 18px 18px 20px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+
+        .info-card-detail h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card-detail h4 i {
+            color: #3a8a5a;
+            width: 20px;
+        }
+
+        .info-card-detail ul {
+            list-style: none;
+        }
+
+        .info-card-detail ul li {
+            padding: 4px 0;
+            font-size: 0.78rem;
+            color: #2c405c;
+            border-bottom: 1px solid #f5f8f6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card-detail ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card-detail ul li i {
+            color: #8a9db0;
+            width: 16px;
+            font-size: 0.65rem;
+        }
+
+        .info-card-detail .highlight {
+            color: #3a8a5a;
+            font-weight: 600;
+        }
+
+        /* ================================================================ */
+        /* 5. 关联推荐 */
+        /* ================================================================ */
+        .related-section {
+            margin-bottom: 40px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 16px;
+            text-align: center;
+            border: 1px solid #eef2f6;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            border-color: #3a8a5a;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .related-card .icon {
+            font-size: 1.6rem;
+            color: #3a8a5a;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .related-card h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .related-card p {
+            font-size: 0.7rem;
+            color: #5b6f89;
+            margin-top: 2px;
+        }
+
+        /* ===== 底部 ===== */
+        footer {
+            background: white;
+            border-top: 1px solid #e2eaf2;
+            padding: 24px 0;
+            margin-top: 8px;
+            color: #5b6f89;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* ================================================================ */
+        /* 响应式 */
+        /* ================================================================ */
+        @media (max-width: 1024px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid-detail { grid-template-columns: 1fr 1fr; }
+            .story-grid { grid-template-columns: 1fr; }
+            .detail-hero { height: 320px; }
+            .detail-hero h1 { font-size: 2.8rem; }
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            .carousel-slide .slide-label {
+                font-size: 0.85rem;
+                padding: 8px 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .related-grid { grid-template-columns: 1fr 1fr; }
+            .info-grid-detail { grid-template-columns: 1fr 1fr; }
+            .detail-hero { height: 280px; }
+            .detail-hero h1 { font-size: 2.2rem; }
+            .detail-hero h1 .en { font-size: 1rem; }
+            .nav-links { display: none; }
+            .overview-stats { flex-direction: row; flex-wrap: wrap; }
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+            .carousel-slide .slide-label {
+                font-size: 0.75rem;
+                padding: 6px 14px;
+            }
+            .carousel-slide .slide-img {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .related-grid { grid-template-columns: 1fr 1fr; }
+            .info-grid-detail { grid-template-columns: 1fr; }
+            .container { padding: 0 16px; }
+            .detail-hero { height: 240px; }
+            .detail-hero h1 { font-size: 1.8rem; }
+            .detail-hero h1 .en { font-size: 0.9rem; }
+            .carousel-slide .slide-label {
+                font-size: 0.65rem;
+                padding: 4px 12px;
+            }
+            .carousel-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 0.7rem;
+            }
+            .carousel-dots .dot {
+                width: 8px;
+                height: 8px;
+            }
+            .carousel-dots .dot.active {
+                width: 20px;
+            }
+            .carousel-slide .slide-img {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 导航 ===== -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i> 肇兴侗寨
+                <span class="en">ZHAOXING DONG VILLAGE</span>
+            </div>
+            <div class="nav-links">
+                <a href="网页-肇兴.html" data-i18n="nav-home">首页</a>
+                <a href="网页-肇兴.html#highlights" data-i18n="nav-highlights">亮点</a>
+                <a href="网页-肇兴.html#experience" data-i18n="nav-experience">体验</a>
+                <a href="网页-肇兴.html#guide" data-i18n="nav-guide">攻略</a>
+                <a href="网页-肇兴.html#info" data-i18n="nav-info">实用</a>
+            </div>
+            <div class="lang-switch">
+                <button id="lang-zh" class="active" data-lang="zh">中文</button>
+                <span class="divider">|</span>
+                <button id="lang-en" data-lang="en">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== 返回按钮 ===== -->
+    <div class="container back-bar">
+        <a href="网页-肇兴.html" id="backLink">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="back">返回</span>
+        </a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="detail-hero">
+        <div class="detail-hero-bg"></div>
+        <div class="detail-hero-overlay"></div>
+        <div class="container">
+            <div class="breadcrumb">
+                <span data-i18n="breadcrumb-home">首页</span> / <span data-i18n="breadcrumb-highlights">核心亮点</span> / <span data-i18n="breadcrumb-current">侗族大歌</span>
+            </div>
+            <h1>
+                <span data-i18n="hero-title">侗族大歌</span>
+                <span class="en" data-i18n="hero-sub">DONG GRAND SONG</span>
+            </h1>
+            <div class="subtitle" data-i18n="hero-subtitle">人类非物质文化遗产 · 天籁之音穿越千年</div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- ============================================================ -->
+        <!-- 中文内容 -->
+        <!-- ============================================================ -->
+        <div id="lang-zh-content" class="lang-content active">
+
+            <!-- 1. 概述 -->
+            <section class="overview-section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> 概述
+                    <span class="sub">· 一眼识侗歌</span>
+                </div>
+                <div class="overview-grid">
+                    <div class="overview-text">
+                        <p>
+                            <b>侗族大歌</b>是侗族民间多声部合唱音乐的总称，起源于春秋战国时期，
+                            已有<b>2500多年</b>的历史。2009年，侗族大歌被列入<b>联合国教科文组织人类非物质文化遗产代表作名录</b>。
+                        </p>
+                        <p>
+                            侗族大歌以<b>无伴奏、多声部</b>为最大特色，模仿鸟叫虫鸣、高山流水等自然之声，
+                            形成了独特的音乐语汇。歌队由同村寨的男女组成，分高声部和低声部，
+                            歌声和谐优美，被誉为"<b>天籁之音</b>"。
+                        </p>
+                        <p>
+                            侗族大歌不仅是音乐艺术，更是侗族文化的百科全书——它承载着侗族的历史、传说、
+                            伦理与情感，是侗族人精神生活的重要组成部分。在肇兴侗寨，至今仍有<b>近百支</b>村歌队
+                            活跃在寨子中，传承着这份千年不绝的文化遗产。
+                        </p>
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="number">2500<span class="suffix">+ 年</span></div>
+                            <div class="label">历史传承</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">1<span class="suffix"> 项</span></div>
+                            <div class="label">人类非物质文化遗产</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">近100<span class="suffix"> 支</span></div>
+                            <div class="label">村歌队</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">多声部<span class="suffix"> 合唱</span></div>
+                            <div class="label">无伴奏</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 轮播图 -->
+            <section class="carousel-section">
+                <div class="section-title">
+                    <i class="fas fa-images"></i> 侗歌光影
+                    <span class="sub">· 千年回响</span>
+                </div>
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <div class="carousel-track" id="carouselTrack">
+
+                        <!-- Slide 1：歌队演唱 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage1.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage1.jpg');">
+                                <span class="slide-label"><i class="fas fa-users"></i> 歌队演唱 · 天籁和声</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2：鼓楼对歌 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage2.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage2.jpg');">
+                                <span class="slide-label"><i class="fas fa-archway"></i> 鼓楼对歌 · 声震山林</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3：非遗传承 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage3.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage3.jpg');">
+                                <span class="slide-label"><i class="fas fa-hand-sparkles"></i> 非遗传承 · 歌师亲授</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4：节日欢歌 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage4.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage4.jpg');">
+                                <span class="slide-label"><i class="fas fa-calendar-day"></i> 节日欢歌 · 万人唱响</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-btn prev-btn" id="prevBtn" aria-label="上一张">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" id="nextBtn" aria-label="下一张">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </section>
+
+            <!-- 3. 文化背景与历史故事 -->
+            <section class="story-section">
+                <div class="section-title">
+                    <i class="fas fa-scroll"></i> 文化背景与历史故事
+                    <span class="sub">· 千年传承</span>
+                </div>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-trophy"></i></span>
+                        <h4>人类非遗 · 世界的声音</h4>
+                        <p>
+                            2009年，侗族大歌被联合国教科文组织列入"人类非物质文化遗产代表作名录"，
+                            成为全人类共同的文化瑰宝。这一荣誉不仅是对侗族音乐艺术的最高认可，
+                            也让世界听到了来自中国深山的天籁之音。
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-music"></i></span>
+                        <h4>多声部奇迹 · 自然的模仿</h4>
+                        <p>
+                            侗族大歌的独特之处在于其无伴奏多声部合唱形式——歌者不依赖任何乐器，
+                            仅凭人声便创造出和谐的和声效果。歌声模仿鸟鸣、流水、风声，
+                            仿佛将整个大自然的声音都融入其中，被誉为"东方无伴奏交响乐"。
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <h4>歌队传承 · 活态的文化</h4>
+                        <p>
+                            在肇兴侗寨，唱歌是每个侗族人生活的一部分。从孩童时代起，
+                            孩子们便在歌师的教导下学习大歌。男女歌队在鼓楼、花桥、田间对歌，
+                            歌声伴随着侗族人的一生——从出生到婚嫁，从劳作到节庆。
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-heart"></i></span>
+                        <h4>大歌里的故事 · 侗族的情感密码</h4>
+                        <p>
+                            侗族大歌不仅是音乐，更是一部"有声的史诗"。它唱颂祖先的迁徙、
+                            讲述英雄的故事、表达青年男女的爱慕、传递农耕的智慧。
+                            每一首大歌都承载着侗族人的情感与记忆，是侗族文化最鲜活的载体。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 实用信息 -->
+            <section class="info-section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> 实用信息
+                    <span class="sub">· 行前须知</span>
+                </div>
+                <div class="info-grid-detail">
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-map-marker-alt"></i> 观看地点</h4>
+                        <ul>
+                            <li>肇兴侗寨鼓楼群</li>
+                            <li>侗族大歌表演场</li>
+                            <li>节庆期间全寨各处</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-clock"></i> 最佳时间</h4>
+                        <ul>
+                            <li>节庆期间（谷雨节、侗年等）</li>
+                            <li>傍晚鼓楼对歌</li>
+                            <li>可提前咨询演出时间</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-ticket-alt"></i> 观看费用</h4>
+                        <ul>
+                            <li>大型演出需购票</li>
+                            <li>日常对歌免费观看</li>
+                            <li>部分体验项目收费</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-lightbulb"></i> 观看提示</h4>
+                        <ul>
+                            <li>尊重歌者，保持安静</li>
+                            <li>拍照请先征得同意</li>
+                            <li>可参与互动学唱</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 关联推荐 -->
+            <section class="related-section">
+                <div class="section-title">
+                    <i class="fas fa-link"></i> 关联推荐
+                    <span class="sub">· 继续探索</span>
+                </div>
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-archway"></i></span>
+                        <h5>鼓楼</h5>
+                        <p>侗族村寨的灵魂</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-bridge"></i></span>
+                        <h5>花桥</h5>
+                        <p>风雨廊桥的守望</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-hands"></i></span>
+                        <h5>非遗手工艺</h5>
+                        <p>蜡染 · 刺绣 · 银饰</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-mountain"></i></span>
+                        <h5>堂安梯田</h5>
+                        <p>徒步天堂 · 四季如画</p>
+                    </a>
+                </div>
+            </section>
+
+        </div><!-- end zh-content -->
+
+        <!-- ============================================================ -->
+        <!-- 英文内容 -->
+        <!-- ============================================================ -->
+        <div id="lang-en-content" class="lang-content">
+
+            <!-- 1. Overview -->
+            <section class="overview-section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> Overview
+                    <span class="sub">· At a Glance</span>
+                </div>
+                <div class="overview-grid">
+                    <div class="overview-text">
+                        <p>
+                            The <b>Dong Grand Song</b> is a general term for the Dong ethnic group's multi-part choral music, originating from the Spring and Autumn period over <b>2,500 years</b> ago. In 2009, it was inscribed on the <b>UNESCO Representative List of the Intangible Cultural Heritage of Humanity</b>.
+                        </p>
+                        <p>
+                            The Dong Grand Song is characterized by its <b>unaccompanied multi-part harmony</b>, imitating natural sounds like birdsong, insects, and flowing water. Singing groups, composed of men and women from the same village, perform with high and low vocal parts, creating harmonies so beautiful they are called "<b>heavenly sounds</b>."
+                        </p>
+                        <p>
+                            More than just music, the Dong Grand Song is an encyclopedia of Dong culture — carrying history, legends, ethics, and emotions. In Zhaoxing, nearly <b>100 village singing groups</b> keep this thousand-year heritage alive.
+                        </p>
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="number">2500<span class="suffix">+ years</span></div>
+                            <div class="label">History</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">1<span class="suffix"> item</span></div>
+                            <div class="label">UNESCO Heritage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">~100<span class="suffix"> groups</span></div>
+                            <div class="label">Village choirs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">Multi-part<span class="suffix"> chorus</span></div>
+                            <div class="label">A cappella</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Carousel Gallery -->
+            <section class="carousel-section">
+                <div class="section-title">
+                    <i class="fas fa-images"></i> Grand Song Gallery
+                    <span class="sub">· Echoes Through Time</span>
+                </div>
+                <div class="carousel-wrapper" id="carouselWrapperEn">
+                    <div class="carousel-track" id="carouselTrackEn">
+
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage1.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage1.jpg');">
+                                <span class="slide-label"><i class="fas fa-users"></i> Choir Performance</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage2.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage2.jpg');">
+                                <span class="slide-label"><i class="fas fa-archway"></i> Drum Tower Singing</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage3.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage3.jpg');">
+                                <span class="slide-label"><i class="fas fa-hand-sparkles"></i> Heritage Transmission</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage4.jpg');">
+                            <div class="slide-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/dage4.jpg');">
+                                <span class="slide-label"><i class="fas fa-calendar-day"></i> Festival Celebration</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-btn prev-btn" id="prevBtnEn" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" id="nextBtnEn" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carousel-dots" id="carouselDotsEn"></div>
+                </div>
+            </section>
+
+            <!-- 3. Culture & Stories -->
+            <section class="story-section">
+                <div class="section-title">
+                    <i class="fas fa-scroll"></i> Culture & Stories
+                    <span class="sub">· A Thousand-Year Legacy</span>
+                </div>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-trophy"></i></span>
+                        <h4>UNESCO Heritage · A Voice of the World</h4>
+                        <p>
+                            In 2009, the Dong Grand Song was inscribed on the UNESCO Representative List, becoming a cultural treasure shared by all humanity. This honor not only recognizes the artistic excellence of Dong music but also brings the heavenly voices from China's deep mountains to the world.
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-music"></i></span>
+                        <h4>The Miracle of Polyphony · Imitating Nature</h4>
+                        <p>
+                            The Dong Grand Song's uniqueness lies in its unaccompanied multi-part harmony. Without any instruments, singers create rich harmonies that imitate birds, flowing water, and wind — as if the entire natural world is woven into the music.
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <h4>Living Heritage · Passing It On</h4>
+                        <p>
+                            In Zhaoxing, singing is part of everyday life. Children learn Grand Songs from master singers at a young age. Men and women sing in duels at drum towers and flower bridges — the songs accompany them through birth, marriage, work, and festivals.
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-heart"></i></span>
+                        <h4>Stories in the Songs · The Dong Emotional Code</h4>
+                        <p>
+                            The Dong Grand Song is more than music — it is a "living epic." It tells stories of ancestral migrations, heroic legends, young love, and farming wisdom. Each song carries the emotions and memories of the Dong people, making it the most vibrant vessel of their culture.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Practical Info -->
+            <section class="info-section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> Practical Info
+                    <span class="sub">· Before You Go</span>
+                </div>
+                <div class="info-grid-detail">
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-map-marker-alt"></i> Venues</h4>
+                        <ul>
+                            <li>Drum towers in Zhaoxing</li>
+                            <li>Grand Song performance hall</li>
+                            <li>Throughout the village during festivals</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-clock"></i> Best Time</h4>
+                        <ul>
+                            <li>During festivals (Grain Rain, Dong New Year)</li>
+                            <li>Evening drum tower singing</li>
+                            <li>Check performance schedules in advance</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-ticket-alt"></i> Admission</h4>
+                        <ul>
+                            <li>Ticketed for major shows</li>
+                            <li>Free for daily singing</li>
+                            <li>Some workshops charge fees</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-detail">
+                        <h4><i class="fas fa-lightbulb"></i> Tips</h4>
+                        <ul>
+                            <li>Respect singers, stay quiet</li>
+                            <li>Ask permission before photography</li>
+                            <li>Join interactive singing sessions</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Related -->
+            <section class="related-section">
+                <div class="section-title">
+                    <i class="fas fa-link"></i> You May Also Like
+                    <span class="sub">· Continue Exploring</span>
+                </div>
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-archway"></i></span>
+                        <h5>Drum Tower</h5>
+                        <p>Soul of the Dong village</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-bridge"></i></span>
+                        <h5>Flower Bridge</h5>
+                        <p>Wind-rain bridge</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-hands"></i></span>
+                        <h5>Heritage Crafts</h5>
+                        <p>Batik · Embroidery</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-mountain"></i></span>
+                        <h5>Tang'an Terraces</h5>
+                        <p>Hiking paradise</p>
+                    </a>
+                </div>
+            </section>
+
+        </div><!-- end en-content -->
+
+    </div>
+
+    <!-- ===== 底部 ===== -->
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-compass"></i> <span data-i18n="footer-title">肇兴侗寨 · 千年侗寨 梦幻肇兴</span></p>
+            <p style="font-size: 0.75rem; margin-top: 4px; color: #8a9db0;" data-i18n="footer-tags">鼓楼 · 花桥 · 侗族大歌 · 堂安梯田 · 非遗手工艺</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== 轮播图功能 =====
+        function initCarousel(wrapperId, trackId, prevBtnId, nextBtnId, dotsId) {
+            const wrapper = document.getElementById(wrapperId);
+            const track = document.getElementById(trackId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const dotsContainer = document.getElementById(dotsId);
+
+            const slides = track.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+            let currentIndex = 0;
+            let autoPlayTimer = null;
+            const intervalTime = 4000;
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', '转到第 ' + (i + 1) + ' 张');
+                dot.addEventListener('click', function() {
+                    goToSlide(i);
+                    resetAutoPlay();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+                track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+
+            function resetAutoPlay() {
+                if (autoPlayTimer) {
+                    clearInterval(autoPlayTimer);
+                    autoPlayTimer = null;
+                }
+                startAutoPlay();
+            }
+
+            function startAutoPlay() {
+                if (autoPlayTimer) clearInterval(autoPlayTimer);
+                autoPlayTimer = setInterval(nextSlide, intervalTime);
+            }
+
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                resetAutoPlay();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                resetAutoPlay();
+            });
+
+            wrapper.addEventListener('mouseenter', function() {
+                if (autoPlayTimer) {
+                    clearInterval(autoPlayTimer);
+                    autoPlayTimer = null;
+                }
+            });
+
+            wrapper.addEventListener('mouseleave', function() {
+                startAutoPlay();
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            wrapper.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            wrapper.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetAutoPlay();
+                }
+            }, { passive: true });
+
+            startAutoPlay();
+
+            return {
+                goToSlide: goToSlide,
+                nextSlide: nextSlide,
+                prevSlide: prevSlide,
+                resetAutoPlay: resetAutoPlay
+            };
+        }
+
+        const carouselZH = initCarousel('carouselWrapper', 'carouselTrack', 'prevBtn', 'nextBtn', 'carouselDots');
+        const carouselEN = initCarousel('carouselWrapperEn', 'carouselTrackEn', 'prevBtnEn', 'nextBtnEn', 'carouselDotsEn');
+
+        // ===== 语言切换功能 =====
+        (function() {
+            const zhBtn = document.getElementById('lang-zh');
+            const enBtn = document.getElementById('lang-en');
+            const zhContent = document.getElementById('lang-zh-content');
+            const enContent = document.getElementById('lang-en-content');
+
+            const i18nElements = document.querySelectorAll('[data-i18n]');
+
+            const translations = {
+                'zh': {
+                    'back': '返回',
+                    'nav-home': '首页',
+                    'nav-highlights': '亮点',
+                    'nav-experience': '体验',
+                    'nav-guide': '攻略',
+                    'nav-info': '实用',
+                    'breadcrumb-home': '首页',
+                    'breadcrumb-highlights': '核心亮点',
+                    'breadcrumb-current': '侗族大歌',
+                    'hero-title': '侗族大歌',
+                    'hero-sub': 'DONG GRAND SONG',
+                    'hero-subtitle': '人类非物质文化遗产 · 天籁之音穿越千年',
+                    'footer-title': '肇兴侗寨 · 千年侗寨 梦幻肇兴',
+                    'footer-tags': '鼓楼 · 花桥 · 侗族大歌 · 堂安梯田 · 非遗手工艺'
+                },
+                'en': {
+                    'back': 'Back',
+                    'nav-home': 'Home',
+                    'nav-highlights': 'Highlights',
+                    'nav-experience': 'Experiences',
+                    'nav-guide': 'Guide',
+                    'nav-info': 'Info',
+                    'breadcrumb-home': 'Home',
+                    'breadcrumb-highlights': 'Highlights',
+                    'breadcrumb-current': 'Dong Grand Song',
+                    'hero-title': 'Dong Grand Song',
+                    'hero-sub': 'DONG GRAND SONG',
+                    'hero-subtitle': 'UNESCO Intangible Cultural Heritage',
+                    'footer-title': 'Zhaoxing Dong Village · A Thousand-Year Dream',
+                    'footer-tags': 'Drum Tower · Flower Bridge · Dong Grand Song · Tang\'an Terraces · Heritage Crafts'
+                }
+            };
+
+            function setLanguage(lang) {
+                zhContent.classList.toggle('active', lang === 'zh');
+                enContent.classList.toggle('active', lang === 'en');
+                zhBtn.classList.toggle('active', lang === 'zh');
+                enBtn.classList.toggle('active', lang === 'en');
+
+                i18nElements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+                document.title = lang === 'zh' ? '侗族大歌 · 肇兴侗寨' : 'Dong Grand Song · Zhaoxing Dong Village';
+
+                if (lang === 'zh') {
+                    carouselZH.goToSlide(0);
+                    carouselZH.resetAutoPlay();
+                } else {
+                    carouselEN.goToSlide(0);
+                    carouselEN.resetAutoPlay();
+                }
+            }
+
+            zhBtn.addEventListener('click', function() { setLanguage('zh'); });
+            enBtn.addEventListener('click', function() { setLanguage('en'); });
+
+            setLanguage('zh');
+        })();
+    </script>
+
+</body>
+</html>

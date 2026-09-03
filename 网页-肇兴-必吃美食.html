@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>必吃美食 · 肇兴侗寨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #0b1a2e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 顶部导航 ===== */
+        .top-nav {
+            background: white;
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.92);
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            color: #0b1a2e;
+        }
+
+        .nav-brand i {
+            color: #3a8a5a;
+            font-size: 1.3rem;
+        }
+
+        .nav-brand .en {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #8a9db0;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1f3a5f;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #3a8a5a;
+        }
+
+        /* ===== 语言切换按钮 ===== */
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .lang-switch button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: 0.2s;
+            color: #5b6f89;
+        }
+
+        .lang-switch button.active {
+            background: #3a8a5a;
+            color: white;
+        }
+
+        .lang-switch button:hover:not(.active) {
+            background: #eaf5ea;
+        }
+
+        .lang-switch .divider {
+            color: #c0c8d0;
+        }
+
+        /* ===== 返回按钮 ===== */
+        .back-bar {
+            padding: 16px 0 8px;
+        }
+
+        .back-bar a {
+            color: #3a8a5a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .back-bar a:hover {
+            color: #2a6a4a;
+        }
+
+        /* ===== HERO 区域 ===== */
+        .detail-hero {
+            position: relative;
+            height: 380px;
+            min-height: 280px;
+            margin-bottom: 32px;
+            border-radius: 0 0 40px 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d2a1a;
+        }
+
+        .detail-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            filter: brightness(0.5) saturate(1.1);
+            transition: transform 0.6s ease;
+        }
+
+        .detail-hero:hover .detail-hero-bg {
+            transform: scale(1.02);
+        }
+
+        .detail-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .detail-hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .detail-hero .breadcrumb {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .detail-hero .breadcrumb span {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .detail-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        .detail-hero h1 .en {
+            font-weight: 300;
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 4px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .detail-hero .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* ===== 通用标题 ===== */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: #3a8a5a;
+            font-size: 1.6rem;
+        }
+
+        .section-title .sub {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #8a9db0;
+            margin-left: 4px;
+        }
+
+        /* ================================================================ */
+        /* 内容包装器（中英文切换） */
+        /* ================================================================ */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+
+        /* ================================================================ */
+        /* 1. 概述 */
+        /* ================================================================ */
+        .overview-section {
+            margin-bottom: 40px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .overview-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #2c405c;
+            margin-bottom: 16px;
+        }
+
+        .overview-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .overview-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: white;
+            border-radius: 20px;
+            padding: 24px 20px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0b1a2e;
+            line-height: 1.2;
+        }
+
+        .stat-item .number .suffix {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4a5f7a;
+        }
+
+        .stat-item .label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #5b6f89;
+            margin-top: 2px;
+        }
+
+        /* ================================================================ */
+        /* 2. 美食卡片 */
+        /* ================================================================ */
+        .food-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.10);
+            border-color: #7aaa8a;
+        }
+
+        .food-card .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .food-card .card-img .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.15));
+        }
+
+        .food-card .card-img .badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        .food-card .card-img .badge i {
+            margin-right: 4px;
+        }
+
+        .food-card .card-body {
+            padding: 18px 20px 22px;
+        }
+
+        .food-card .card-body h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .food-card .card-body .sub {
+            font-size: 0.8rem;
+            color: #5b6f89;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .food-card .card-body .flavor {
+            display: inline-block;
+            background: #fef0e0;
+            color: #b85a2a;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .food-card .card-body p {
+            font-size: 0.9rem;
+            color: #4a5f7a;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .food-card .card-body .ingredients {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .food-card .card-body .ingredients span {
+            background: white;
+            color: #2c405c;
+            font-size: 0.7rem;
+            padding: 2px 12px;
+            border-radius: 30px;
+            border: 1px solid #eef2f6;
+        }
+
+        .food-card .card-body .ingredients i {
+            color: #3a8a5a;
+            font-size: 0.7rem;
+            margin-right: 4px;
+        }
+
+        .food-card .card-body .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .food-card .card-body .tags span {
+            background: #f0f4fa;
+            color: #1f4870;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .food-card .card-body .tags span.highlight {
+            background: #3a8a5a;
+            color: white;
+        }
+
+        /* ================================================================ */
+        /* 3. 文化故事 */
+        /* ================================================================ */
+        .story-section {
+            margin-bottom: 40px;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 24px 28px;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+
+        .story-card:hover {
+            border-color: #7aaa8a;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .story-card .icon {
+            font-size: 1.8rem;
+            color: #3a8a5a;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .story-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .story-card p {
+            font-size: 0.92rem;
+            color: #4a5f7a;
+            line-height: 1.7;
+        }
+
+        /* ================================================================ */
+        /* 4. 关联推荐 */
+        /* ================================================================ */
+        .related-section {
+            margin-bottom: 40px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 16px;
+            text-align: center;
+            border: 1px solid #eef2f6;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            border-color: #3a8a5a;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .related-card .icon {
+            font-size: 1.6rem;
+            color: #3a8a5a;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .related-card h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .related-card p {
+            font-size: 0.7rem;
+            color: #5b6f89;
+            margin-top: 2px;
+        }
+
+        /* ===== 底部 ===== */
+        footer {
+            background: white;
+            border-top: 1px solid #e2eaf2;
+            padding: 24px 0;
+            margin-top: 8px;
+            color: #5b6f89;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* ================================================================ */
+        /* 响应式 */
+        /* ================================================================ */
+        @media (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            .food-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .detail-hero {
+                height: 320px;
+            }
+            .detail-hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .detail-hero {
+                height: 280px;
+            }
+            .detail-hero h1 {
+                font-size: 2.2rem;
+            }
+            .detail-hero h1 .en {
+                font-size: 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .overview-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .lang-switch button {
+                font-size: 0.7rem;
+                padding: 2px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .detail-hero {
+                height: 240px;
+            }
+            .detail-hero h1 {
+                font-size: 1.8rem;
+            }
+            .detail-hero h1 .en {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 导航 ===== -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-compass"></i> 肇兴侗寨
+                <span class="en">ZHAOXING DONG VILLAGE</span>
+            </div>
+            <div class="nav-links">
+                <a href="网页-肇兴.html" data-i18n="nav-home">首页</a>
+                <a href="网页-肇兴.html#guide" data-i18n="nav-guide">攻略</a>
+                <a href="网页-肇兴.html#info" data-i18n="nav-info">实用</a>
+            </div>
+            <div class="lang-switch">
+                <button id="lang-zh" class="active" data-lang="zh">中文</button>
+                <span class="divider">|</span>
+                <button id="lang-en" data-lang="en">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== 返回按钮 ===== -->
+    <div class="container back-bar">
+        <a href="网页-肇兴.html#guide" data-i18n="back-link">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="back-text">返回探索攻略</span>
+        </a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="detail-hero">
+        <div class="detail-hero-bg"></div>
+        <div class="detail-hero-overlay"></div>
+        <div class="container">
+            <div class="breadcrumb">
+                <span data-i18n="breadcrumb-home">首页</span> / <span data-i18n="breadcrumb-guide">探索攻略</span> / <span data-i18n="breadcrumb-current">必吃美食</span>
+            </div>
+            <h1>
+                <span data-i18n="hero-title">必吃美食</span>
+                <span class="en" data-i18n="hero-sub">MUST-EAT FOOD</span>
+            </h1>
+            <div class="subtitle" data-i18n="hero-subtitle">酸汤 · 烤肉 · 腌鱼 · 牛瘪 · 杨梅冰浆 · 黔茶</div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- ============================================================ -->
+        <!-- 中文内容 -->
+        <!-- ============================================================ -->
+        <div id="lang-zh-content" class="lang-content active">
+
+            <!-- 1. 概述 -->
+            <section class="overview-section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> 食在肇兴
+                    <span class="sub">· 侗乡风味</span>
+                </div>
+                <div class="overview-grid">
+                    <div class="overview-text">
+                        <p>
+                            肇兴侗寨的美食，是<b>酸、辣、鲜、香</b>的完美融合，
+                            也是侗族人民千年生活的智慧结晶。从<b>酸汤火锅</b>的醇厚、
+                            <b>脆皮烤香猪肉</b>的焦香，到<b>腌鱼腌肉</b>的岁月沉淀，
+                            每一道美食都承载着侗族人对自然的理解与对生活的热爱。
+                        </p>
+                        <p>
+                            在肇兴，美食不仅满足味蕾，更是一种<b>文化体验</b>。
+                            走进街巷，随处可见晾晒的腌鱼、飘香的酸汤、热气腾腾的糯米饭。
+                            这里的每一道菜，都有它的<b>故事与灵魂</b>。
+                        </p>
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="number">6<span class="suffix"> 味</span></div>
+                            <div class="label">必吃榜单</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">1000<span class="suffix">+ 年</span></div>
+                            <div class="label">美食传承</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">酸<span class="suffix"> 辣</span></div>
+                            <div class="label">味觉灵魂</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">发酵<span class="suffix"> 智慧</span></div>
+                            <div class="label">非遗技艺</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 六道必吃美食 -->
+            <section class="dual-section">
+                <div class="section-title">
+                    <i class="fas fa-utensils"></i> 六味榜单
+                    <span class="sub">· 不可错过的侗乡味道</span>
+                </div>
+                <div class="food-grid">
+
+                    <!-- 1. 酸汤火锅 -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi1.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-fire"></i> 侗家经典</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>酸汤火锅</h3>
+                            <div class="sub">侗家经典酸汤风味</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> 酸辣 · 鲜香</span>
+                            <p>
+                                以糯米发酵的酸汤为锅底，加入木姜子、辣椒、番茄等天然香料，
+                                酸爽开胃、香气四溢。涮煮当地鲜鱼、牛肉、豆腐和山野菜，
+                                每一口都是侗族大山深处的风味记忆。
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-seedling"></i> 酸汤</span>
+                                <span><i class="fas fa-fish"></i> 鲜鱼</span>
+                                <span><i class="fas fa-leaf"></i> 木姜子</span>
+                                <span><i class="fas fa-utensils"></i> 山野菜</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">非遗美食</span>
+                                <span>酸汤鱼</span>
+                                <span>开胃</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 脆皮烤香猪肉 -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi2.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-fire"></i> 地道小吃</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>脆皮烤香猪肉</h3>
+                            <div class="sub">地道小吃</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> 焦香 · 鲜嫩</span>
+                            <p>
+                                选用黔东南黑毛土猪，以秘制香料腌制后慢火烤制。
+                                外皮金黄酥脆、入口即化，肉质鲜嫩多汁、香气四溢。
+                                是侗寨街头不可错过的美味，常搭配糯米饭一同食用。
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-piggy-bank"></i> 黑毛土猪</span>
+                                <span><i class="fas fa-pepper"></i> 香料</span>
+                                <span><i class="fas fa-seedling"></i> 糯米饭</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">招牌必点</span>
+                                <span>炭火慢烤</span>
+                                <span>街头美食</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. 腌鱼腌肉 -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi3.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-clock"></i> 岁月味道</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>腌鱼腌肉</h3>
+                            <div class="sub">侗族特色发酵美食</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> 酸香 · 醇厚</span>
+                            <p>
+                                侗族最具代表性的发酵美食。将鲜鱼或猪肉用盐、辣椒、
+                                糯米等调料腌制后放入木桶中密封发酵数月。成品酸香浓郁、
+                                风味独特，是侗族人待客的上品，也是时间馈赠的美味。
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-fish"></i> 稻田鱼</span>
+                                <span><i class="fas fa-pepper"></i> 辣椒</span>
+                                <span><i class="fas fa-seedling"></i> 糯米</span>
+                                <span><i class="fas fa-clock"></i> 发酵</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">非遗技艺</span>
+                                <span>发酵美食</span>
+                                <span>待客上品</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. 牛瘪 -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi5.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-star"></i> 独特风味</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>牛瘪</h3>
+                            <div class="sub">独特风味体验</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> 独特 · 回甘</span>
+                            <p>
+                                侗族最具特色的菜肴之一。以牛胃中未完全消化的草料汁液为"汤底"，
+                                加入牛肉、牛杂及十余种山野香料烹制而成。初尝微苦，
+                                而后回甘，被誉为侗族的<b>"黑暗料理之王"</b>，是勇敢者的味觉挑战。
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-cow"></i> 牛胃草汁</span>
+                                <span><i class="fas fa-leaf"></i> 山野香料</span>
+                                <span><i class="fas fa-utensils"></i> 牛杂</span>
+                            </div>
+                            <div class="tags">
+                                <span>黑暗料理</span>
+                                <span>药膳功效</span>
+                                <span>勇者挑战</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 杨梅冰浆 -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi4.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-snowflake"></i> 消暑佳品</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>杨梅冰浆</h3>
+                            <div class="sub">消暑佳品</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> 酸甜 · 冰爽</span>
+                            <p>
+                                以贵州高原特产杨梅为原料，加入冰块、糯米和适量糖浆
+                                手工搅打而成。口感冰爽绵密、酸甜可口，
+                                是炎炎夏日里最受欢迎的消暑饮品，在肇兴街头随处可见。
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-seedling"></i> 杨梅</span>
+                                <span><i class="fas fa-cube"></i> 冰块</span>
+                                <span><i class="fas fa-seedling"></i> 糯米</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">夏日限定</span>
+                                <span>手工搅打</span>
+                                <span>街头饮品</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. 一杯黔茶 -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi6.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-mug-hot"></i> 贵州特色</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>一杯黔茶</h3>
+                            <div class="sub">贵州特色茶饮</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> 清雅 · 回甘</span>
+                            <p>
+                                贵州是中国重要的茶产区，肇兴侗寨周边高山茶园出产的绿茶、
+                                红茶品质上乘。一杯黔茶，选用当地生态茶园的鲜嫩茶芽，
+                                以传统工艺制作。茶汤清亮、香气悠长、回甘绵醇，
+                                是品味黔山黔水的最佳方式。
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-leaf"></i> 高山绿茶</span>
+                                <span><i class="fas fa-leaf"></i> 红茶</span>
+                                <span><i class="fas fa-water"></i> 山泉水</span>
+                            </div>
+                            <div class="tags">
+                                <span>高山生态</span>
+                                <span>传统工艺</span>
+                                <span>伴手礼</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. 文化故事 -->
+            <section class="story-section">
+                <div class="section-title">
+                    <i class="fas fa-scroll"></i> 美食文化
+                    <span class="sub">· 舌尖上的侗乡</span>
+                </div>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-leaf"></i></span>
+                        <h4>酸 · 侗族饮食的灵魂</h4>
+                        <p>
+                            侗族人常说"三天不吃酸，走路打捞蹿"。酸汤、酸鱼、酸肉——
+                            酸味是侗族饮食的底色。在缺盐少油的年代，侗族先民
+                            用发酵的方式保存食物，创造了独特的酸食文化。
+                            一碗酸汤，承载着侗族人的生存智慧与生活哲学。
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <h4>发酵 · 时间的味道</h4>
+                        <p>
+                            腌鱼腌肉、酸汤——侗族美食的精髓在于"等待"。
+                            将鲜鱼鲜肉封入木桶，让时间与微生物共同作用，
+                            数月之后，开桶的瞬间香气四溢。这种与时间合作的
+                            烹饪哲学，是侗族人对自然最深的敬畏。
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-mountain"></i></span>
+                        <h4>大山 · 食材的馈赠</h4>
+                        <p>
+                            肇兴的美食离不开黔东南大山的馈赠。野生木姜子、
+                            山泉水、稻田鱼、黑毛猪、高山茶——每一味食材
+                            都来自这片土地。侗族人懂得如何让山野的味道
+                            在餐桌上绽放，这是人与自然的默契。
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-hand-sparkles"></i></span>
+                        <h4>传承 · 非遗美食的活态</h4>
+                        <p>
+                            酸汤鱼的制作技艺、腌鱼的发酵工艺，都已被列入
+                            非物质文化遗产名录。在肇兴，美食不是旅游的附庸，
+                            而是活着的传统——走进任何一户人家，你都能
+                            品尝到千年不变的味道。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 关联推荐 -->
+            <section class="related-section">
+                <div class="section-title">
+                    <i class="fas fa-link"></i> 关联推荐
+                    <span class="sub">· 继续探索</span>
+                </div>
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-archway"></i></span>
+                        <h5>鼓楼</h5>
+                        <p>侗族村寨的灵魂</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-bridge"></i></span>
+                        <h5>花桥</h5>
+                        <p>风雨廊桥的守望</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-music"></i></span>
+                        <h5>侗族大歌</h5>
+                        <p>人类非物质文化遗产</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-hands"></i></span>
+                        <h5>非遗手工艺</h5>
+                        <p>蜡染 · 刺绣 · 银饰</p>
+                    </a>
+                </div>
+            </section>
+
+        </div><!-- end zh-content -->
+
+        <!-- ============================================================ -->
+        <!-- 英文内容 -->
+        <!-- ============================================================ -->
+        <div id="lang-en-content" class="lang-content">
+
+            <!-- 1. Overview -->
+            <section class="overview-section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i> Taste of Zhaoxing
+                    <span class="sub">· Dong Flavors</span>
+                </div>
+                <div class="overview-grid">
+                    <div class="overview-text">
+                        <p>
+                            The cuisine of Zhaoxing Dong Village is a perfect blend of <b>sour, spicy, fresh, and fragrant</b> —
+                            a thousand-year testament to the wisdom of the Dong people. From the rich <b>Sour Soup Hotpot</b>
+                            to the crispy <b>Roast Pork</b> and the time-aged <b>Fermented Fish & Meat</b>,
+                            every dish embodies the Dong people's understanding of nature and their love for life.
+                        </p>
+                        <p>
+                            In Zhaoxing, food is not just about taste — it's a <b>cultural experience</b>.
+                            Walk through the alleys and you'll see fermented fish drying in the sun, fragrant sour soup steaming,
+                            and sticky rice freshly cooked. Every dish has its <b>story and soul</b>.
+                        </p>
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="number">6<span class="suffix"> dishes</span></div>
+                            <div class="label">Must-Eat List</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">1000<span class="suffix">+ yrs</span></div>
+                            <div class="label">Culinary Heritage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">Sour<span class="suffix"> & Spicy</span></div>
+                            <div class="label">Soul of Flavor</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">Ferment<span class="suffix"> wisdom</span></div>
+                            <div class="label">Intangible Heritage</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Six Must-Eat Dishes -->
+            <section class="dual-section">
+                <div class="section-title">
+                    <i class="fas fa-utensils"></i> Six Flavors
+                    <span class="sub">· Unmissable Dong Tastes</span>
+                </div>
+                <div class="food-grid">
+
+                    <!-- 1. Sour Soup Hotpot -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi1.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-fire"></i> Dong Classic</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Sour Soup Hotpot</h3>
+                            <div class="sub">Classic Dong sour flavor</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> Sour · Spicy · Fresh</span>
+                            <p>
+                                A broth fermented from glutinous rice, infused with wild pepper, chili, and tomato.
+                                Simmer fresh fish, beef, tofu, and wild mountain vegetables for a taste
+                                that captures the soul of the Dong highlands.
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-seedling"></i> Sour broth</span>
+                                <span><i class="fas fa-fish"></i> Fresh fish</span>
+                                <span><i class="fas fa-leaf"></i> Wild pepper</span>
+                                <span><i class="fas fa-utensils"></i> Mountain greens</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">Intangible Heritage</span>
+                                <span>Sour Fish</span>
+                                <span>Appetizing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Crispy Roast Pork -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi2.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-fire"></i> Street Snack</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Crispy Roast Pork</h3>
+                            <div class="sub">Local street snack</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> Crispy · Tender</span>
+                            <p>
+                                Made from Guizhou black-haired free-range pork, marinated with secret spices
+                                and slow-roasted over charcoal. Golden crispy skin that melts in your mouth,
+                                with juicy, fragrant meat — a must-try street food, often enjoyed with sticky rice.
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-piggy-bank"></i> Black-haired pork</span>
+                                <span><i class="fas fa-pepper"></i> Spices</span>
+                                <span><i class="fas fa-seedling"></i> Glutinous rice</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">Signature dish</span>
+                                <span>Charcoal-roasted</span>
+                                <span>Street food</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Fermented Fish & Meat -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi3.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-clock"></i> Aged to Perfection</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Fermented Fish & Meat</h3>
+                            <div class="sub">Dong traditional fermented food</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> Sour · Rich</span>
+                            <p>
+                                The most iconic fermented dish of the Dong people. Fresh fish or pork is
+                                salted with chili, glutinous rice, and spices, then sealed in wooden barrels
+                                to ferment for months. The result is a deeply sour, umami-rich delicacy —
+                                a treasured gift for honored guests.
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-fish"></i> Rice-field fish</span>
+                                <span><i class="fas fa-pepper"></i> Chili</span>
+                                <span><i class="fas fa-seedling"></i> Glutinous rice</span>
+                                <span><i class="fas fa-clock"></i> Fermentation</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">Intangible Heritage</span>
+                                <span>Fermented</span>
+                                <span>Honored guest dish</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Beef Bile -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi5.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-star"></i> Unique Flavor</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Beef Bile</h3>
+                            <div class="sub">A truly unique taste experience</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> Unique · Bitter-sweet</span>
+                            <p>
+                                One of the most distinctive Dong dishes. Made from the partially digested
+                                grass juice from a cow's stomach, cooked with beef, offal, and over ten
+                                wild mountain herbs. Slightly bitter at first, then sweet — famously known
+                                as the <b>"King of Dark Cuisine"</b>, a challenge for the brave.
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-cow"></i> Cow stomach juice</span>
+                                <span><i class="fas fa-leaf"></i> Wild herbs</span>
+                                <span><i class="fas fa-utensils"></i> Beef offal</span>
+                            </div>
+                            <div class="tags">
+                                <span>Dark cuisine</span>
+                                <span>Herbal remedy</span>
+                                <span>For the brave</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Bayberry Slush -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi4.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-snowflake"></i> Summer Refreshment</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>Bayberry Slush</h3>
+                            <div class="sub">Refreshing summer treat</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> Sweet · Sour · Icy</span>
+                            <p>
+                                Made from Guizhou's highland bayberries, blended with ice, glutinous rice,
+                                and a touch of syrup. Smooth, icy, and perfectly sweet-sour —
+                                the most popular summer drink in Zhaoxing, found on every street corner.
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-seedling"></i> Bayberry</span>
+                                <span><i class="fas fa-cube"></i> Ice</span>
+                                <span><i class="fas fa-seedling"></i> Glutinous rice</span>
+                            </div>
+                            <div class="tags">
+                                <span class="highlight">Summer special</span>
+                                <span>Hand-mixed</span>
+                                <span>Street drink</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. A Cup of Guizhou Tea -->
+                    <div class="food-card">
+                        <div class="card-img" style="background-image: url('file:///C:/Users/marie/Desktop/%E7%BD%91%E9%A1%B5/images/meishi6.jpg');">
+                            <div class="img-overlay"></div>
+                            <span class="badge"><i class="fas fa-mug-hot"></i> Guizhou Specialty</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>A Cup of Guizhou Tea</h3>
+                            <div class="sub">Signature Guizhou tea drink</div>
+                            <span class="flavor"><i class="fas fa-pepper-hot"></i> Elegant · Sweet aftertaste</span>
+                            <p>
+                                Guizhou is one of China's major tea regions. The highland tea gardens
+                                around Zhaoxing produce premium green and black teas.
+                                This cup of tea uses tender buds from local eco-tea gardens,
+                                crafted with traditional methods — clear, fragrant, and lingeringly sweet.
+                            </p>
+                            <div class="ingredients">
+                                <span><i class="fas fa-leaf"></i> Highland green tea</span>
+                                <span><i class="fas fa-leaf"></i> Black tea</span>
+                                <span><i class="fas fa-water"></i> Spring water</span>
+                            </div>
+                            <div class="tags">
+                                <span>Eco-tea</span>
+                                <span>Traditional craft</span>
+                                <span>Perfect gift</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. Food Culture Stories -->
+            <section class="story-section">
+                <div class="section-title">
+                    <i class="fas fa-scroll"></i> Food Culture
+                    <span class="sub">· Flavors of the Dong Highlands</span>
+                </div>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-leaf"></i></span>
+                        <h4>Sour — The Soul of Dong Cuisine</h4>
+                        <p>
+                            The Dong people say, "Three days without sour, and you can barely walk."
+                            Sour soup, sour fish, sour meat — sourness is the foundation of Dong food.
+                            In times when salt was scarce, the Dong people used fermentation to preserve food,
+                            creating a unique sour-food culture that embodies their survival wisdom.
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <h4>Fermentation — The Taste of Time</h4>
+                        <p>
+                            Fermented fish, fermented meat, sour soup — the essence of Dong cuisine is "waiting."
+                            Fresh ingredients are sealed in wooden barrels, allowing time and microbes to work.
+                            Months later, the aroma that bursts forth is unforgettable — a culinary philosophy
+                            that reflects the Dong people's deepest respect for nature.
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-mountain"></i></span>
+                        <h4>Mountains — Nature's Bounty</h4>
+                        <p>
+                            Zhaoxing's cuisine is inseparable from the gifts of the southeastern Guizhou mountains.
+                            Wild pepper, spring water, rice-field fish, black-haired pigs, highland tea —
+                            every ingredient comes from this land. The Dong people know how to let the flavors
+                            of the mountains shine at the table — a harmony between humans and nature.
+                        </p>
+                    </div>
+                    <div class="story-card">
+                        <span class="icon"><i class="fas fa-hand-sparkles"></i></span>
+                        <h4>Living Heritage — The Art of Intangible Culture</h4>
+                        <p>
+                            The craft of sour fish soup and the fermentation of fish have been inscribed
+                            as intangible cultural heritage. In Zhaoxing, food is not a tourist accessory
+                            but a living tradition — walk into any household, and you can taste flavors
+                            that have remained unchanged for a thousand years.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Related Recommendations -->
+            <section class="related-section">
+                <div class="section-title">
+                    <i class="fas fa-link"></i> You May Also Like
+                    <span class="sub">· Continue Exploring</span>
+                </div>
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-archway"></i></span>
+                        <h5>Drum Tower</h5>
+                        <p>Soul of the Dong village</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-bridge"></i></span>
+                        <h5>Flower Bridge</h5>
+                        <p>Wind-rain bridge</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-music"></i></span>
+                        <h5>Dong Grand Song</h5>
+                        <p>UNESCO heritage</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="icon"><i class="fas fa-hands"></i></span>
+                        <h5>Heritage Crafts</h5>
+                        <p>Batik · Embroidery</p>
+                    </a>
+                </div>
+            </section>
+
+        </div><!-- end en-content -->
+
+    </div>
+
+    <!-- ===== 底部 ===== -->
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-compass"></i> <span data-i18n="footer-title">肇兴侗寨 · 千年侗寨 梦幻肇兴</span></p>
+            <p style="font-size: 0.75rem; margin-top: 4px; color: #8a9db0;" data-i18n="footer-tags">鼓楼 · 花桥 · 侗族大歌 · 堂安梯田 · 非遗手工艺</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== 语言切换功能 =====
+        (function() {
+            const zhBtn = document.getElementById('lang-zh');
+            const enBtn = document.getElementById('lang-en');
+            const zhContent = document.getElementById('lang-zh-content');
+            const enContent = document.getElementById('lang-en-content');
+
+            const i18nElements = document.querySelectorAll('[data-i18n]');
+
+            const translations = {
+                'zh': {
+                    'nav-home': '首页',
+                    'nav-guide': '攻略',
+                    'nav-info': '实用',
+                    'back-link': '返回探索攻略',
+                    'back-text': '返回探索攻略',
+                    'breadcrumb-home': '首页',
+                    'breadcrumb-guide': '探索攻略',
+                    'breadcrumb-current': '必吃美食',
+                    'hero-title': '必吃美食',
+                    'hero-sub': 'MUST-EAT FOOD',
+                    'hero-subtitle': '酸汤 · 烤肉 · 腌鱼 · 牛瘪 · 杨梅冰浆 · 黔茶',
+                    'footer-title': '肇兴侗寨 · 千年侗寨 梦幻肇兴',
+                    'footer-tags': '鼓楼 · 花桥 · 侗族大歌 · 堂安梯田 · 非遗手工艺'
+                },
+                'en': {
+                    'nav-home': 'Home',
+                    'nav-guide': 'Guide',
+                    'nav-info': 'Info',
+                    'back-link': 'Back to Guide',
+                    'back-text': 'Back to Guide',
+                    'breadcrumb-home': 'Home',
+                    'breadcrumb-guide': 'Travel Guide',
+                    'breadcrumb-current': 'Must-Eat Food',
+                    'hero-title': 'Must-Eat Food',
+                    'hero-sub': 'MUST-EAT FOOD',
+                    'hero-subtitle': 'Sour Soup · Roast Pork · Fermented Fish · Beef Bile · Bayberry Slush · Guizhou Tea',
+                    'footer-title': 'Zhaoxing Dong Village · A Thousand-Year Dream',
+                    'footer-tags': 'Drum Tower · Flower Bridge · Dong Grand Song · Tang\'an Terraces · Heritage Crafts'
+                }
+            };
+
+            function setLanguage(lang) {
+                zhContent.classList.toggle('active', lang === 'zh');
+                enContent.classList.toggle('active', lang === 'en');
+                zhBtn.classList.toggle('active', lang === 'zh');
+                enBtn.classList.toggle('active', lang === 'en');
+
+                i18nElements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+                document.title = lang === 'zh' ? '必吃美食 · 肇兴侗寨' : 'Must-Eat Food · Zhaoxing Dong Village';
+            }
+
+            zhBtn.addEventListener('click', function() { setLanguage('zh'); });
+            enBtn.addEventListener('click', function() { setLanguage('en'); });
+
+            setLanguage('zh');
+        })();
+    </script>
+
+</body>
+</html>
